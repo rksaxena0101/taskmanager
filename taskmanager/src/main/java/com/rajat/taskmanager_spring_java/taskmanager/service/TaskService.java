@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 @Service
 public class TaskService {
@@ -52,6 +51,15 @@ public class TaskService {
         if(status != null) {
             task.setStatus(status);
         }
+        return task;
+    }
+
+    public TaskEntity deleteTaskById(int id) {
+        TaskEntity task = getTaskById(id);
+        if(task == null) {
+            return null;
+        }
+        tasks.remove(task);
         return task;
     }
 }
