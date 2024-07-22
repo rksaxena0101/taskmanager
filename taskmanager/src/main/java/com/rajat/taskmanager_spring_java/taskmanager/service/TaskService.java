@@ -1,7 +1,6 @@
 package com.rajat.taskmanager_spring_java.taskmanager.service;
 
 import com.rajat.taskmanager_spring_java.taskmanager.entity.TaskEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -37,10 +36,13 @@ public class TaskService {
         return null;
     }
 
-    public TaskEntity updateTask(int id, String description, String deadline, Boolean status) throws ParseException {
+    public TaskEntity updateTask(int id, String title, String description, String deadline, Boolean status) throws ParseException {
         TaskEntity task = getTaskById(id);
         if(task == null) {
             return null;
+        }
+        if(title != null) {
+            task.setTitle(title);
         }
         if(description != null){
             task.setDescription(description);

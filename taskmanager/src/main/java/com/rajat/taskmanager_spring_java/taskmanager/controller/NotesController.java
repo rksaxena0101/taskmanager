@@ -25,12 +25,20 @@ public class NotesController {
         return ResponseEntity.ok(notes);
     }
 
+//    @GetMapping("")
+//    public ResponseEntity<NoteEntity> getNotesByTaskId
+
     @PostMapping("")
     public ResponseEntity<CreateNoteResponseDTO> addNote(
             @PathVariable("taskId") Integer taskId, @RequestBody CreateNoteDTO body) {
         var note = notesService.addNotesForTask(taskId, body.getTitle(), body.getBody());
 
         return ResponseEntity.ok(new CreateNoteResponseDTO(taskId, note));
+    }
 
+    @DeleteMapping("/{noteId}")
+    public ResponseEntity<Void> deleteNoteById(@PathVariable("taskId") Integer taskId, @PathVariable("noteId") Integer noteId) {
+        notesService.deleteNoteById(taskId, noteId);
+        return ResponseEntity.noContent().build();
     }
 }

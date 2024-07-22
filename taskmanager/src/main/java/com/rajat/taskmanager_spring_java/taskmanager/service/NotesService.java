@@ -27,7 +27,6 @@ public class NotesService {
         if (task == null) {
             return null;
         }
-
         if(taskNotesHandler.get(taskId) == null) {
             taskNotesHandler.put(taskId, new TaskNotesHandler());
         }
@@ -51,5 +50,23 @@ public class NotesService {
         taskNotesHandler1.notes.add(note);
         taskNotesHandler1.noteId++;
         return note;
+    }
+
+    public NoteEntity getNoteById(int noteId) {
+        TaskNotesHandler taskNoteHandler2 = new TaskNotesHandler();
+       for(NoteEntity notes: taskNoteHandler2.notes) {
+           if(notes.getId() == noteId){
+               return notes;
+           }
+       }
+        return null;
+    }
+    public void deleteNoteById(int taskId, int noteId) {
+        TaskNotesHandler taskNotesHandler = this.taskNotesHandler.get(taskId);
+        if (taskNotesHandler == null) {
+            return;
+        }
+
+        taskNotesHandler.notes.removeIf(note -> note.getId() == noteId);
     }
 }
