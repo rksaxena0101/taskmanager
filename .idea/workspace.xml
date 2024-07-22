@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21a02e66-cb45-4c83-b5c0-1e37d611d31e" name="Changes" comment="&quot;add task, get task by id, get all tasks.&quot;">
+    <list default="true" id="21a02e66-cb45-4c83-b5c0-1e37d611d31e" name="Changes" comment="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/NotesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/NotesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/dtos/CreateTaskDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/dtos/CreateTaskDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/dtos/TaskResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/dtos/TaskResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/dtos/UpdateTaskDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/dtos/UpdateTaskDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/entity/TaskEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/entity/TaskEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/NotesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/NotesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/TaskService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +67,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718545861832</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;">
+      <option name="closed" value="true" />
+      <created>1721650992673</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721650992673</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,6 +119,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;Initial changes&quot;" />
     <MESSAGE value="&quot;add task, get task by id, get all tasks.&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;add task, get task by id, get all tasks.&quot;" />
+    <MESSAGE value="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;" />
   </component>
 </project>
