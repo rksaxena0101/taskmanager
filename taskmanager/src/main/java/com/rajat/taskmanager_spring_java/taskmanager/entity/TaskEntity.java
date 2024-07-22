@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.util.Date;
 
+
 @Data
 public class TaskEntity {
     private int id;
@@ -11,5 +12,6 @@ public class TaskEntity {
     private String description;
     private Date deadline;
     private boolean status;
+    //private List<NoteEntity> notes;
 
 }
