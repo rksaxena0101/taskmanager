@@ -5,31 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21a02e66-cb45-4c83-b5c0-1e37d611d31e" name="Changes" comment="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/AuthResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/JwtConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/JwtProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/JwtTokenValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/imp/UserServiceImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskmanager/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/TaskmanagerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/TaskmanagerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/dtos/CreateTaskDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/dtos/CreateTaskDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/dtos/UpdateTaskDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/dtos/UpdateTaskDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/entity/TaskEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/entity/TaskEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/TaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/JwtProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/JwtProviders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/JwtTokenValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/JwtTokenValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/imp/UserServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/imp/UserServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +47,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Downloads/taskmanager&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.codeium.AppSettingsConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -107,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721650992673</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;">
+      <option name="closed" value="true" />
+      <created>1723726601530</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1723726601530</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -159,5 +151,9 @@
     <MESSAGE value="&quot;add task, get task by id, get all tasks.&quot;" />
     <MESSAGE value="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;" />
     <option name="LAST_COMMIT_MESSAGE" value="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

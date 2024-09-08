@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class UserServiceImplementation implements UserService, UserDetailsService {
 
-    private List<User> users = new ArrayList<>();
+    public List<User> users = new ArrayList<>();
 
     @Autowired
     private UserRepository userRepository;
@@ -28,15 +28,15 @@ public class UserServiceImplementation implements UserService, UserDetailsServic
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("loadUserByUsername::username:-"+username);
+        //System.out.println("loadUserByUsername::username:-"+username);
         User user = userRepository.findByEmail(username);
-        System.out.println("User::"+user);
+        //System.out.println("User::"+user);
         users.add(user);
 
         if(user==null) {
             throw new UsernameNotFoundException("User not found with this email" + username);
         }
-        System.out.println("Loaded user: " + user.getEmail() + ", Role: " + user.getRole());
+        //System.out.println("Loaded user: " + user.getEmail() + ", Role: " + user.getRole());
         List<GrantedAuthority> authorities = new ArrayList<>();
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(),
@@ -45,22 +45,22 @@ public class UserServiceImplementation implements UserService, UserDetailsServic
     }
 
     @Override
-    public User findUserProfileByJwt(String jwt) {
-        return null;
-    }
-
-    @Override
-    public User findUserByEmail(String email) {
-        return null;
-    }
-
-    @Override
     public User findUserById(String userId) {
-        return null;
+        return users.get(Integer.parseInt(userId));
     }
 
     @Override
     public List<User> findAllUsers() {
+        return users;
+    }
+
+    @Override
+    public User findUserByUsername(String username) {
+        return null;
+    }
+
+    @Override
+    public User findUserProfileByJwt(String jwt) {
         return null;
     }
 }

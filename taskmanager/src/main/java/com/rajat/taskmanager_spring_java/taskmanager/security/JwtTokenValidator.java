@@ -1,5 +1,6 @@
 package com.rajat.taskmanager_spring_java.taskmanager.security;
 
+import com.rajat.taskmanager_spring_java.taskmanager.controller.UserController;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -7,12 +8,14 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import io.jsonwebtoken.security.SignatureException;
 
@@ -20,19 +23,34 @@ import javax.crypto.SecretKey;
 import java.io.IOException;
 import java.util.List;
 
+@Component
 public class JwtTokenValidator extends OncePerRequestFilter {
-    private JwtProvider jwtProvider = new JwtProvider();
+    private Authentication authentication;
+    public JwtTokenValidator() {}
+
+
+
+    public String getJwtToken() {
+        this.authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("JwtTokenValidator::getJwtToken authentication:- " + this.authentication);
+        if (this.authentication != null) {
+            return JwtProviders.generateToken(this.authentication);
+        } else {
+            return null;
+        }
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String jwt = request.getHeader(JwtConstant.JWT_HEADER);
+        String jwt = getJwtToken();
+        System.out.println("JwtTokenValidator::doFilterInternal JWT:- "+jwt);
         if (jwt != null && jwt.startsWith("Bearer ")) {
             jwt = jwt.substring(7); // Remove "Bearer " prefix
 
             try {
-                SecretKey key = JwtProvider.secretKey;
+                SecretKey key = JwtProviders.secretKey;
 
-                System.out.println("Validating JWT: " + jwt);
+                System.out.println("JwtTokenValidator doFilterInternal JWT:- " + jwt);
                 System.out.println("Using SecretKey: " + key);
 
                 Claims claims = Jwts.parserBuilder()

@@ -3,9 +3,11 @@ package com.rajat.taskmanager_spring_java.taskmanager.controller;
 import com.rajat.taskmanager_spring_java.taskmanager.entity.User;
 import com.rajat.taskmanager_spring_java.taskmanager.repository.UserRepository;
 import com.rajat.taskmanager_spring_java.taskmanager.security.AuthResponse;
-import com.rajat.taskmanager_spring_java.taskmanager.security.JwtProvider;
+import com.rajat.taskmanager_spring_java.taskmanager.security.JwtTokenValidator;
 import com.rajat.taskmanager_spring_java.taskmanager.service.UserService;
 import com.rajat.taskmanager_spring_java.taskmanager.service.imp.UserServiceImplementation;
+import com.rajat.taskmanager_spring_java.taskmanager.security.JwtProviders;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +18,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -33,6 +32,12 @@ public class UserController {
     private UserServiceImplementation customUserDetails;
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private JwtTokenValidator jwtTokenValidator;
+
+    @Autowired
+    private JwtProviders jwtProviders;
 
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user) throws Exception {
@@ -57,7 +62,7 @@ public class UserController {
         userRepository.save(savedUser);
         Authentication authentication = new UsernamePasswordAuthenticationToken(email,password);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = JwtProvider.generateToken(authentication);
+        String token = jwtProviders.generateToken(authentication);
 
         AuthResponse authResponse = new AuthResponse();
         authResponse.setJwt(token);
@@ -69,16 +74,15 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> signin(@RequestBody User loginRequest) {
-        System.out.println("Username:- "+loginRequest.getEmail()+"-------"+loginRequest.getPassword());
+        //System.out.println("Username:- "+loginRequest.getEmail()+"-------"+loginRequest.getPassword());
         String username = loginRequest.getEmail();
         String password = loginRequest.getPassword();
-
-        System.out.println(username+"-------"+password);
-
         Authentication authentication = authenticate(username,password);
+        //System.out.println(username+"-------"+password);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String token = JwtProvider.generateToken(authentication);
+        String token = jwtProviders.generateToken(authentication);
+        System.out.println("UserController signin() token"+token);
         AuthResponse authResponse = new AuthResponse();
 
         authResponse.setMessage("Login success");
@@ -87,8 +91,6 @@ public class UserController {
 
         return new ResponseEntity<>(authResponse,HttpStatus.OK);
     }
-
-
 
 
     private Authentication authenticate(String username, String password) {
@@ -112,6 +114,16 @@ public class UserController {
         }
         return new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
 
+    }
+
+    @GetMapping("/users/{username}")
+    public ResponseEntity<User> getUser(@PathVariable("username") String username) {
+        User user = userService.findAllUsers()
+                .stream()
+                .filter(u -> u.getEmail().equals(username))
+                .findFirst()
+                .orElse(null);
+        return ResponseEntity.ok(user);
     }
 
 }
