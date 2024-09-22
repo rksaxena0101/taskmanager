@@ -22,6 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/auth")
@@ -130,9 +131,12 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/users")
     public ResponseEntity<List<User>> getAllUsers() {
-        return ResponseEntity.ok(userService.findAllUsers());
+        //Check and return only users which have role ROLE_CUSTOMER
+        Stream<User> user = userService.findAllUsers().stream().filter(allUser -> allUser.getRole().equals("ROLE_CUSTOMER"));
+        return ResponseEntity.ok(user.toList());
     }
 
 }
