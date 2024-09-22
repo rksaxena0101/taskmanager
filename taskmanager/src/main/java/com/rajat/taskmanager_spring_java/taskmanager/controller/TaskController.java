@@ -50,7 +50,6 @@ public class TaskController {
         return ResponseEntity.ok(taskResponse);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("")
     @ResponseBody
     public ResponseEntity<TaskEntity> addTask(@RequestBody CreateTaskDto createTaskDto) throws ParseException {
@@ -58,7 +57,7 @@ public class TaskController {
         return ResponseEntity.ok(task);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("{id}")
     @ResponseBody
     public ResponseEntity<TaskEntity> updateTask(@PathVariable("id") Integer id, @RequestBody UpdateTaskDTO updateTaskDto) throws ParseException {
@@ -69,7 +68,7 @@ public class TaskController {
         return ResponseEntity.ok(task);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("{id}")
     @ResponseBody
     public ResponseEntity<TaskEntity> deleteTaskById(@PathVariable("id") Integer id) {

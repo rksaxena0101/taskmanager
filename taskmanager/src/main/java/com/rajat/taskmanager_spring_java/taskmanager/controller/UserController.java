@@ -11,6 +11,7 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,6 +20,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/auth")
@@ -47,10 +50,10 @@ public class UserController {
         String mobile = user.getMobile();
         String role = user.getRole();
 
-        User isEmailExist = userRepository.findByEmail(email);
-        if (isEmailExist != null) {
-            throw new Exception("Email Is Already Used With Another Account");
-        }
+//        User isEmailExist = userRepository.findByEmail(email);
+//        if (isEmailExist != null) {
+//            throw new Exception("Email Is Already Used With Another Account");
+//        }
         User createdUser = new User();
         createdUser.setEmail(email);
         createdUser.setFullName(fullName);
@@ -116,6 +119,7 @@ public class UserController {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/users/{username}")
     public ResponseEntity<User> getUser(@PathVariable("username") String username) {
         User user = userService.findAllUsers()
@@ -124,6 +128,11 @@ public class UserController {
                 .findFirst()
                 .orElse(null);
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("/users")
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(userService.findAllUsers());
     }
 
 }

@@ -51,6 +51,7 @@ public class UserServiceImplementation implements UserService, UserDetailsServic
 
     @Override
     public List<User> findAllUsers() {
+        List<User> users = userRepository.findAll();
         return users;
     }
 

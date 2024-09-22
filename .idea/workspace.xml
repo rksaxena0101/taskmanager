@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="21a02e66-cb45-4c83-b5c0-1e37d611d31e" name="Changes" comment="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/TaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/JwtProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/JwtProviders.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/JwtTokenValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/security/JwtTokenValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/imp/UserServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/java/com/rajat/taskmanager_spring_java/taskmanager/service/imp/UserServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmanager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/taskmanager/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +47,7 @@
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Downloads/taskmanager&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.codeium.AppSettingsConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">

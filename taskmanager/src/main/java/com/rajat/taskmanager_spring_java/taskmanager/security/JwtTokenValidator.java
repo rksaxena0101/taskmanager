@@ -28,8 +28,6 @@ public class JwtTokenValidator extends OncePerRequestFilter {
     private Authentication authentication;
     public JwtTokenValidator() {}
 
-
-
     public String getJwtToken() {
         this.authentication = SecurityContextHolder.getContext().getAuthentication();
         System.out.println("JwtTokenValidator::getJwtToken authentication:- " + this.authentication);
