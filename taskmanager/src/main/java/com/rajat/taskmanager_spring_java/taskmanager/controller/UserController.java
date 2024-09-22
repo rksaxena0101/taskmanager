@@ -50,10 +50,10 @@ public class UserController {
         String mobile = user.getMobile();
         String role = user.getRole();
 
-//        User isEmailExist = userRepository.findByEmail(email);
-//        if (isEmailExist != null) {
-//            throw new Exception("Email Is Already Used With Another Account");
-//        }
+        User isEmailExist = userRepository.findByEmail(email);
+        if (isEmailExist != null) {
+            throw new Exception("Email Is Already Used With Another Account");
+        }
         User createdUser = new User();
         createdUser.setEmail(email);
         createdUser.setFullName(fullName);
