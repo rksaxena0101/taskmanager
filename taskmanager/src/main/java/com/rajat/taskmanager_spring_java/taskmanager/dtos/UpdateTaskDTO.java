@@ -13,5 +13,5 @@ public class UpdateTaskDTO {
     String title;
     String description;
     String deadline;
-    Boolean status;
+    boolean status;
 }

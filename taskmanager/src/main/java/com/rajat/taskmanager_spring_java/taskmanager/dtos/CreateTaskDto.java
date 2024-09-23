@@ -13,5 +13,5 @@ public class CreateTaskDto {
     String title;
     String description;
     String deadline;
-
+    boolean status;
 }

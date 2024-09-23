@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="21a02e66-cb45-4c83-b5c0-1e37d611d31e" name="Changes" comment="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;" />
+=======
+    <list default="true" id="21a02e66-cb45-4c83-b5c0-1e37d611d31e" name="Changes" comment="&quot;Add logic if email already exist in database then throw validation error &quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+>>>>>>> master
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +19,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -32,14 +39,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Downloads/taskmanager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/user/Downloads/taskmanager",
+    "settings.editor.selected.configurable": "com.codeium.AppSettingsConfigurable"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.rajat.taskmanager_spring_java.taskmanager" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -73,8 +88,38 @@
       <option name="project" value="LOCAL" />
       <updated>1721650992673</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;">
+      <option name="closed" value="true" />
+      <created>1723726601530</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1723726601530</updated>
+    </task>
+    <task id="LOCAL-00005" summary="&quot;Add logic if email already exist in database then throw validation error &quot;">
+      <option name="closed" value="true" />
+      <created>1727005082920</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727005082921</updated>
+    </task>
+    <task id="LOCAL-00006" summary="&quot;Add logic if email already exist in database then throw validation error &quot;">
+      <option name="closed" value="true" />
+      <created>1727008013332</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727008013332</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="RECENT_FILTERS">
@@ -118,7 +163,12 @@
     <MESSAGE value="&quot;Initial changes&quot;" />
     <MESSAGE value="&quot;add task, get task by id, get all tasks.&quot;" />
     <MESSAGE value="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;" />
+    <MESSAGE value="&quot;Add logic if email already exist in database then throw validation error &quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Add logic if email already exist in database then throw validation error &quot;" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
