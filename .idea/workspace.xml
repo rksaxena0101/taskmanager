@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21a02e66-cb45-4c83-b5c0-1e37d611d31e" name="Changes" comment="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="21a02e66-cb45-4c83-b5c0-1e37d611d31e" name="Changes" comment="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,5 +119,9 @@
     <MESSAGE value="&quot;add task, get task by id, get all tasks.&quot;" />
     <MESSAGE value="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;" />
     <option name="LAST_COMMIT_MESSAGE" value="&quot;delete note, add note,add task, get task by id, get all tasks.&quot;" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
