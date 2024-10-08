@@ -2,6 +2,7 @@ package com.rajat.taskmanager_spring_java.taskmanager.service;
 
 import com.rajat.taskmanager_spring_java.taskmanager.entity.NoteEntity;
 import com.rajat.taskmanager_spring_java.taskmanager.entity.TaskEntity;
+import com.rajat.taskmanager_spring_java.taskmanager.repository.NoteRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,10 +12,12 @@ import java.util.List;
 @Service
 public class NotesService {
 
+    private NoteRepository noteRepository;
     private TaskService taskService;
-    private HashMap<Integer, TaskNotesHandler> taskNotesHandler = new HashMap<>();
+    private HashMap<Long, TaskNotesHandler> taskNotesHandler = new HashMap<>();
 
-    public NotesService(TaskService taskService) {
+    public NotesService(TaskService taskService, NoteRepository noteRepository) {
+        this.noteRepository = noteRepository;
         this.taskService = taskService;
     }
     class TaskNotesHandler {
@@ -22,7 +25,7 @@ public class NotesService {
         protected ArrayList<NoteEntity> notes = new ArrayList<>();
     }
 
-    public List<NoteEntity> getNotesForTask(int taskId) {
+    public List<NoteEntity> getNotesForTask(long taskId) {
         TaskEntity task = taskService.getTaskById(taskId);
         if (task == null) {
             return null;
@@ -33,7 +36,7 @@ public class NotesService {
         return taskNotesHandler.get(taskId).notes;
     }
 
-    public NoteEntity addNotesForTask(int taskId, String title, String body) {
+    public NoteEntity addNotesForTask(long taskId, String title, String body) {
         TaskEntity task = taskService.getTaskById(taskId);
         if(task == null) {
             return null;
@@ -52,7 +55,7 @@ public class NotesService {
         return note;
     }
 
-    public NoteEntity getNoteById(int noteId) {
+    public NoteEntity getNoteById(long noteId) {
         TaskNotesHandler taskNoteHandler2 = new TaskNotesHandler();
        for(NoteEntity notes: taskNoteHandler2.notes) {
            if(notes.getId() == noteId){
@@ -61,7 +64,7 @@ public class NotesService {
        }
         return null;
     }
-    public void deleteNoteById(int taskId, int noteId) {
+    public void deleteNoteById(long taskId, long noteId) {
         TaskNotesHandler taskNotesHandler = this.taskNotesHandler.get(taskId);
         if (taskNotesHandler == null) {
             return;

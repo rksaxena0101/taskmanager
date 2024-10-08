@@ -1,6 +1,8 @@
 package com.rajat.taskmanager_spring_java.taskmanager.controller;
 
+import com.rajat.taskmanager_spring_java.taskmanager.dtos.UserDTO;
 import com.rajat.taskmanager_spring_java.taskmanager.entity.User;
+import com.rajat.taskmanager_spring_java.taskmanager.entity.UserRole;
 import com.rajat.taskmanager_spring_java.taskmanager.repository.UserRepository;
 import com.rajat.taskmanager_spring_java.taskmanager.security.AuthResponse;
 import com.rajat.taskmanager_spring_java.taskmanager.security.JwtTokenValidator;
@@ -15,13 +17,19 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RestController
@@ -43,6 +51,8 @@ public class UserController {
     @Autowired
     private JwtProviders jwtProviders;
 
+    Collection<? extends GrantedAuthority> authorities;
+
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user) throws Exception {
         String email = user.getEmail();
@@ -53,18 +63,21 @@ public class UserController {
 
         User isEmailExist = userRepository.findByEmail(email);
         if (isEmailExist != null) {
-            throw new Exception("Email Is Already Used With Another Account");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+
         User createdUser = new User();
         createdUser.setEmail(email);
         createdUser.setFullName(fullName);
         createdUser.setMobile(mobile);
-        createdUser.setRole(role);
         createdUser.setPassword(passwordEncoder.encode(password));
 
+        // Set role directly in User entity
+        createdUser.setRole(role); // Default role
+
         User savedUser = userRepository.save(createdUser);
-        userRepository.save(savedUser);
-        Authentication authentication = new UsernamePasswordAuthenticationToken(email,password);
+        // Update the authentication part to reflect the saved user
+        Authentication authentication = new UsernamePasswordAuthenticationToken(savedUser, null, authorities);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtProviders.generateToken(authentication);
 
@@ -72,8 +85,7 @@ public class UserController {
         authResponse.setJwt(token);
         authResponse.setMessage("Register Success");
         authResponse.setStatus(true);
-        return new ResponseEntity<AuthResponse>(authResponse, HttpStatus.OK);
-
+        return new ResponseEntity<>(authResponse, HttpStatus.OK);
     }
 
     @PostMapping("/login")
@@ -82,6 +94,10 @@ public class UserController {
         String username = loginRequest.getEmail();
         String password = loginRequest.getPassword();
         Authentication authentication = authenticate(username,password);
+        if(authentication.isAuthenticated()) {
+            Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities(); // Correct usage here <>
+            System.out.println("Authorities during JWT generation: " + authorities.toString());
+        }
         //System.out.println(username+"-------"+password);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
@@ -90,6 +106,7 @@ public class UserController {
         AuthResponse authResponse = new AuthResponse();
 
         authResponse.setMessage("Login success");
+        authResponse.setEmail(username);
         authResponse.setJwt(token);
         authResponse.setStatus(true);
 
@@ -98,31 +115,20 @@ public class UserController {
 
 
     private Authentication authenticate(String username, String password) {
-
-        System.out.println(username+"---++----"+password);
-
         UserDetails userDetails = customUserDetails.loadUserByUsername(username);
 
-        System.out.println("Sig in in user details"+ userDetails);
-
-        if(userDetails == null) {
-            System.out.println("Sign in details - null" + userDetails);
-
+        if (userDetails == null) {
             throw new BadCredentialsException("Invalid username and password");
         }
-        if(!passwordEncoder.matches(password,userDetails.getPassword())) {
-            System.out.println("Sign in userDetails - password mismatch"+userDetails);
-
+        if (!passwordEncoder.matches(password, userDetails.getPassword())) {
             throw new BadCredentialsException("Invalid password");
-
         }
-        return new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
-
+        return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping("/users/{username}")
-    public ResponseEntity<User> getUser(@PathVariable("username") String username) {
+    @GetMapping("/users/{email}")
+    public ResponseEntity<User> getUser(@PathVariable("email") String username) {
         User user = userService.findAllUsers()
                 .stream()
                 .filter(u -> u.getEmail().equals(username))
@@ -133,10 +139,11 @@ public class UserController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getAllUsers() {
-        //Check and return only users which have role ROLE_CUSTOMER
-        Stream<User> user = userService.findAllUsers().stream().filter(allUser -> allUser.getRole().equals("ROLE_CUSTOMER"));
-        return ResponseEntity.ok(user.toList());
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
+        List<User> users = userService.findAllUsers();
+        List<UserDTO> userDTOs = users.stream()
+                .map(user -> new UserDTO(user.getId(), user.getFullName(), user.getEmail(), user.getMobile(), user.getRole()))
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(userDTOs);
     }
-
 }

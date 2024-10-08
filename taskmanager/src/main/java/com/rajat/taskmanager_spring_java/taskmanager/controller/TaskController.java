@@ -73,6 +73,10 @@ public class TaskController {
     @ResponseBody
     public ResponseEntity<TaskEntity> deleteTaskById(@PathVariable("id") Integer id) {
         var task = taskService.deleteTaskById(id);
+        if (task == null) {
+            return ResponseEntity.notFound().build();
+        }
+        System.out.println("TaskController::deleteTaskById:: "+task);
         return ResponseEntity.ok(task);
     }
 

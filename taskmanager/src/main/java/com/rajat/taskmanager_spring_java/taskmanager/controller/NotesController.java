@@ -20,7 +20,7 @@ public class NotesController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<NoteEntity>> getNotes(@PathVariable("taskId") Integer taskId) {
+    public ResponseEntity<List<NoteEntity>> getNotes(@PathVariable("taskId") long taskId) {
         var notes = notesService.getNotesForTask(taskId);
         return ResponseEntity.ok(notes);
     }
@@ -30,14 +30,14 @@ public class NotesController {
 
     @PostMapping("")
     public ResponseEntity<CreateNoteResponseDTO> addNote(
-            @PathVariable("taskId") Integer taskId, @RequestBody CreateNoteDTO body) {
+            @PathVariable("taskId") Long taskId, @RequestBody CreateNoteDTO body) {
         var note = notesService.addNotesForTask(taskId, body.getTitle(), body.getBody());
 
         return ResponseEntity.ok(new CreateNoteResponseDTO(taskId, note));
     }
 
     @DeleteMapping("/{noteId}")
-    public ResponseEntity<Void> deleteNoteById(@PathVariable("taskId") Integer taskId, @PathVariable("noteId") Integer noteId) {
+    public ResponseEntity<Void> deleteNoteById(@PathVariable("taskId") long taskId, @PathVariable("noteId") long noteId) {
         notesService.deleteNoteById(taskId, noteId);
         return ResponseEntity.noContent().build();
     }

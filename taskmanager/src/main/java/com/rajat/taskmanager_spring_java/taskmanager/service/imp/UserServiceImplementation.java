@@ -5,6 +5,7 @@ import com.rajat.taskmanager_spring_java.taskmanager.entity.User;
 import com.rajat.taskmanager_spring_java.taskmanager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,22 +27,17 @@ public class UserServiceImplementation implements UserService, UserDetailsServic
     }
 
 
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //System.out.println("loadUserByUsername::username:-"+username);
         User user = userRepository.findByEmail(username);
-        //System.out.println("User::"+user);
-        users.add(user);
 
-        if(user==null) {
-            throw new UsernameNotFoundException("User not found with this email" + username);
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found with this email: " + username);
         }
-        //System.out.println("Loaded user: " + user.getEmail() + ", Role: " + user.getRole());
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        return new org.springframework.security.core.userdetails.User(
-                user.getEmail(),
-                user.getPassword(),
-                authorities);
+
+        // Use the user directly instead of creating a new UserDetails object
+        return user;
     }
 
     @Override
@@ -55,13 +51,4 @@ public class UserServiceImplementation implements UserService, UserDetailsServic
         return users;
     }
 
-    @Override
-    public User findUserByUsername(String username) {
-        return null;
-    }
-
-    @Override
-    public User findUserProfileByJwt(String jwt) {
-        return null;
-    }
 }

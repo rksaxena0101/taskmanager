@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 public class TaskResponseDTO {
-    private int id;
+    private long id;
     private String title;
     private String description;
     private String deadline;

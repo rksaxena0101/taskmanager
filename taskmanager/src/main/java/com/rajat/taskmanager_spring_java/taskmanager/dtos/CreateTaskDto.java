@@ -1,6 +1,7 @@
 package com.rajat.taskmanager_spring_java.taskmanager.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.rajat.taskmanager_spring_java.taskmanager.entity.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,4 +15,5 @@ public class CreateTaskDto {
     String description;
     String deadline;
     boolean status;
+    User user;
 }
